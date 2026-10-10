@@ -1,0 +1,18 @@
+<h2>{{ titre() }}</h2>
+<p>Intervenant : {{ intervenant() }}</p>
+<p>Date : {{ dateEvenement() | date:'dd/MM/yyyy' }}</p>
+<p>Places disponibles : {{ placesDisponibles() }}</p>
+
+@if (placesDisponibles() > 0) {
+  <p>Inscriptions ouvertes</p>
+} @else {
+  <p>Conférence complète</p>
+}
+
+<button [disabled]="placesDisponibles() === 0" (click)="sInscrire()">
+  S'inscrire
+</button>
+
+<h3>Modifier le titre</h3>
+<input [(ngModel)]="titre" />
+<p>Titre saisi : {{ titre() }}</p>
