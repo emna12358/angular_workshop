@@ -8,7 +8,7 @@ import { ConferenceList } from './conference-list/conference-list';
 import { DetailConference } from './detail-conference/detail-conference';
 import { Inscription } from './inscription/inscription';
 import { Contact } from './contact/contact';
-
+import { PageIntrouvable } from './page-introuvable/page-introuvable';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
@@ -21,4 +21,5 @@ export const routes: Routes = [
   { path: 'inscription', component: Inscription },
   { path: 'contact', component: Contact, data: { title: 'Page de contact' } },
   { path: '**', component: Home },
+  { path: '**', component: PageIntrouvable },
 ];

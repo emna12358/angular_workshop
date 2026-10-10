@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <li><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+    <li><a routerLink="/home" [class.active]="isHomeActive()">Accueil</a></li>
     <li><a routerLink="/profil" routerLinkActive="active">Profil</a></li>
     <li><a routerLink="/amis" routerLinkActive="active">Amis</a></li>
     <li><a routerLink="/notifications" routerLinkActive="active">Notifications</a></li>

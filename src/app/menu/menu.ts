@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { isActive, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,4 +7,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './menu.html',
   styleUrl: './menu.css',
 })
-export class Menu {}
+export class Menu {
+  private router = inject(Router);
+  isHomeActive = isActive('/home', this.router);
+}
