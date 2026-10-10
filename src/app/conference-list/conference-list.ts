@@ -3,10 +3,11 @@ import { DatePipe, UpperCasePipe } from '@angular/common';
 import { ConferenceDetail } from '../conference-detail/conference-detail';
 import { ConferenceService } from '../services/conference-service';
 import { BookingService } from '../services/booking-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-conference-list',
-  imports: [DatePipe, UpperCasePipe, ConferenceDetail],
+  imports: [DatePipe, UpperCasePipe, ConferenceDetail, RouterLink],
   templateUrl: './conference-list.html',
   styleUrl: './conference-list.css',
 })

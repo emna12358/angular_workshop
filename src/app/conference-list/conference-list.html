@@ -21,6 +21,8 @@
         (click)="conf.nbParticipants.set(conf.nbParticipants() + 1); bookingService.reserver()">
         S'inscrire
       </button>
+
+      <a [routerLink]="['/conferences', conf.id]">Ouvrir la page de la conférence</a>
     </div>
   }
 } @empty {

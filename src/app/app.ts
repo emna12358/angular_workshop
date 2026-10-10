@@ -1,20 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
-import { Menu } from './menu/menu';
-import { Profil } from './profil/profil';
-import { Amis } from './amis/amis';
-import { Notifications } from './notifications/notifications';
-import { Footer } from './footer/footer';
-import { Conference } from './conference/conference';
-import { ConferenceList } from './conference-list/conference-list';
 import { Navbar } from './navbar/navbar';
+import { Menu } from './menu/menu';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Menu, Profil, Amis, Notifications, Footer, Conference, ConferenceList,  Navbar],
+  imports: [RouterOutlet, Header, Navbar, Menu, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('mon-projet');
-}
+export class App {}
