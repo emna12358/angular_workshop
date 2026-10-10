@@ -1,0 +1,23 @@
+<h2>Conférences à venir</h2>
+
+@for (conf of conferences(); track conf.id) {
+  @if (conf.date > today) {
+    <div>
+      <h3>{{ conf.title | uppercase }}</h3>
+      <p>{{ conf.description }}</p>
+      <p>Date : {{ conf.date | date:'dd/MM/yyyy' }}</p>
+      <p>Lieu : {{ conf.place }}</p>
+      <p>Places restantes : {{ conf.maxParticipants - conf.nbParticipants }}</p>
+
+      <button
+        [class.vert]="conf.maxParticipants - conf.nbParticipants >= 10"
+        [class.orange]="conf.maxParticipants - conf.nbParticipants > 0 && conf.maxParticipants - conf.nbParticipants < 10"
+        [class.rouge]="conf.maxParticipants - conf.nbParticipants === 0"
+        [disabled]="conf.maxParticipants - conf.nbParticipants === 0">
+        S'inscrire
+      </button>
+    </div>
+  }
+} @empty {
+  <p>Aucune conférence enregistrée</p>
+}

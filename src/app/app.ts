@@ -6,10 +6,11 @@ import { Amis } from './amis/amis';
 import { Notifications } from './notifications/notifications';
 import { Footer } from './footer/footer';
 import { Conference } from './conference/conference';
+import { ConferenceList } from './conference-list/conference-list';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Menu, Profil, Amis, Notifications, Footer, Conference],
+  imports: [Header, Menu, Profil, Amis, Notifications, Footer, Conference, ConferenceList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
