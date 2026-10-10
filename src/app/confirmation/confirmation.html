@@ -1,0 +1,17 @@
+<h2>Confirmation d'inscription</h2>
+
+@if (statut() === 'reussie') {
+  <p>Votre inscription est réussie.</p>
+}
+
+@for (conf of conferenceService.conferences(); track conf.id) {
+  @if (conf.id.toString() === id()) {
+    <p>Conférence : {{ conf.title | uppercase }}</p>
+    <p>Date : {{ conf.date | date:'dd/MM/yyyy' }}</p>
+    <p>Lieu : {{ conf.place }}</p>
+  }
+}
+
+<p>Nombre total de réservations : {{ bookingService.nbReservations() }}</p>
+
+<a routerLink="/conferences">Retour à la liste</a>

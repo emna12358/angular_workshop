@@ -18,7 +18,7 @@
         [class.orange]="conf.maxParticipants - conf.nbParticipants() > 0 && conf.maxParticipants - conf.nbParticipants() < 10"
         [class.rouge]="conf.maxParticipants - conf.nbParticipants() === 0"
         [disabled]="conf.maxParticipants - conf.nbParticipants() === 0"
-        (click)="conf.nbParticipants.set(conf.nbParticipants() + 1); bookingService.reserver()">
+        (click)="conf.nbParticipants.set(conf.nbParticipants() + 1); bookingService.reserver(); confirmer(conf.id)">
         S'inscrire
       </button>
 

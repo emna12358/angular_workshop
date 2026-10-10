@@ -1,9 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { DatePipe, UpperCasePipe } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import { ConferenceDetail } from '../conference-detail/conference-detail';
 import { ConferenceService } from '../services/conference-service';
 import { BookingService } from '../services/booking-service';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-conference-list',
@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 export class ConferenceList {
   readonly conferenceService = inject(ConferenceService);
   readonly bookingService = inject(BookingService);
+  private router = inject(Router);
 
   readonly today = new Date();
 
@@ -27,5 +28,9 @@ export class ConferenceList {
     this.descriptionChoisie.set(description);
     this.dateChoisie.set(date);
     this.lieuChoisi.set(lieu);
+  }
+
+  confirmer(id: number) {
+    this.router.navigate(['/confirmation', id], { queryParams: { statut: 'reussie' } });
   }
 }

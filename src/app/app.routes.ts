@@ -9,6 +9,7 @@ import { DetailConference } from './detail-conference/detail-conference';
 import { Inscription } from './inscription/inscription';
 import { Contact } from './contact/contact';
 import { PageIntrouvable } from './page-introuvable/page-introuvable';
+import { Confirmation } from './confirmation/confirmation';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
@@ -18,8 +19,8 @@ export const routes: Routes = [
   { path: 'conference', component: Conference },
   { path: 'conferences', component: ConferenceList },
   { path: 'conferences/:id', component: DetailConference },
+  { path: 'confirmation/:id', component: Confirmation },
   { path: 'inscription', component: Inscription },
   { path: 'contact', component: Contact, data: { title: 'Page de contact' } },
-  { path: '**', component: Home },
   { path: '**', component: PageIntrouvable },
 ];
