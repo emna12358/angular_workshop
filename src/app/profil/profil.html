@@ -1,0 +1,11 @@
+<h2>Profil utilisateur</h2>
+<img [src]="imageUrl()" [alt]="imageAlt()" />
+<p>Nom : {{ nom() }}</p>
+
+@if (connecte()) {
+  <p>Statut : connecté</p>
+} @else {
+  <p>Statut : déconnecté</p>
+}
+
+<button (click)="changerStatut()">Changer le statut</button>

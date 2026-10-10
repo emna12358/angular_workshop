@@ -1,0 +1,8 @@
+<h2>Notifications</h2>
+<ul>
+  @for (notif of notifications(); track notif.id) {
+    <li>{{ notif.message }}</li>
+  } @empty {
+    <li>Aucune notification</li>
+  }
+</ul>

@@ -1,0 +1,8 @@
+<h2>Liste des amis</h2>
+<ul>
+  @for (ami of amis(); track ami.id) {
+    <app-ami [nom]="ami.nom" />
+  } @empty {
+    <li>Aucun ami</li>
+  }
+</ul>
