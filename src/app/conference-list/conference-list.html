@@ -1,6 +1,6 @@
 <h2>Conférences à venir</h2>
 
-@for (conf of conferences(); track conf.id) {
+@for (conf of conferenceService.conferences(); track conf.id) {
   @if (conf.date > today) {
     <div>
       <h3>{{ conf.title | uppercase }}</h3>
@@ -18,7 +18,7 @@
         [class.orange]="conf.maxParticipants - conf.nbParticipants() > 0 && conf.maxParticipants - conf.nbParticipants() < 10"
         [class.rouge]="conf.maxParticipants - conf.nbParticipants() === 0"
         [disabled]="conf.maxParticipants - conf.nbParticipants() === 0"
-        (click)="conf.nbParticipants.set(conf.nbParticipants() + 1)">
+        (click)="conf.nbParticipants.set(conf.nbParticipants() + 1); bookingService.reserver()">
         S'inscrire
       </button>
     </div>

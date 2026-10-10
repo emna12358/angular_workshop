@@ -7,10 +7,11 @@ import { Notifications } from './notifications/notifications';
 import { Footer } from './footer/footer';
 import { Conference } from './conference/conference';
 import { ConferenceList } from './conference-list/conference-list';
+import { Navbar } from './navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Menu, Profil, Amis, Notifications, Footer, Conference, ConferenceList],
+  imports: [Header, Menu, Profil, Amis, Notifications, Footer, Conference, ConferenceList,  Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
