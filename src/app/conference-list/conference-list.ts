@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { DatePipe, UpperCasePipe } from '@angular/common';
+import { ConferenceDetail } from '../conference-detail/conference-detail';
+
 @Component({
   selector: 'app-conference-list',
-  imports: [DatePipe, UpperCasePipe],
+  imports: [DatePipe, UpperCasePipe, ConferenceDetail],
   templateUrl: './conference-list.html',
   styleUrl: './conference-list.css',
 })
@@ -17,7 +19,7 @@ export class ConferenceList {
       date: new Date(2026, 11, 20),
       place: 'Tunis',
       maxParticipants: 100,
-      nbParticipants: 50,
+      nbParticipants: signal(50),
     },
     {
       id: 2,
@@ -26,7 +28,7 @@ export class ConferenceList {
       date: new Date(2026, 11, 28),
       place: 'Sousse',
       maxParticipants: 30,
-      nbParticipants: 25,
+      nbParticipants: signal(25),
     },
     {
       id: 3,
@@ -35,7 +37,7 @@ export class ConferenceList {
       date: new Date(2027, 0, 15),
       place: 'Sfax',
       maxParticipants: 20,
-      nbParticipants: 20,
+      nbParticipants: signal(20),
     },
     {
       id: 4,
@@ -44,7 +46,19 @@ export class ConferenceList {
       date: new Date(2026, 2, 10),
       place: 'Tunis',
       maxParticipants: 50,
-      nbParticipants: 40,
+      nbParticipants: signal(40),
     },
   ]);
+
+  titreChoisi = signal('');
+  descriptionChoisie = signal('');
+  dateChoisie = signal(new Date());
+  lieuChoisi = signal('');
+
+  choisir(titre: string, description: string, date: Date, lieu: string) {
+    this.titreChoisi.set(titre);
+    this.descriptionChoisie.set(description);
+    this.dateChoisie.set(date);
+    this.lieuChoisi.set(lieu);
+  }
 }

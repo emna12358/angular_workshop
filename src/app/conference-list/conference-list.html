@@ -7,13 +7,18 @@
       <p>{{ conf.description }}</p>
       <p>Date : {{ conf.date | date:'dd/MM/yyyy' }}</p>
       <p>Lieu : {{ conf.place }}</p>
-      <p>Places restantes : {{ conf.maxParticipants - conf.nbParticipants }}</p>
+      <p>Places restantes : {{ conf.maxParticipants - conf.nbParticipants() }}</p>
+
+      <button (click)="choisir(conf.title, conf.description, conf.date, conf.place)">
+        Voir le détail
+      </button>
 
       <button
-        [class.vert]="conf.maxParticipants - conf.nbParticipants >= 10"
-        [class.orange]="conf.maxParticipants - conf.nbParticipants > 0 && conf.maxParticipants - conf.nbParticipants < 10"
-        [class.rouge]="conf.maxParticipants - conf.nbParticipants === 0"
-        [disabled]="conf.maxParticipants - conf.nbParticipants === 0">
+        [class.vert]="conf.maxParticipants - conf.nbParticipants() >= 10"
+        [class.orange]="conf.maxParticipants - conf.nbParticipants() > 0 && conf.maxParticipants - conf.nbParticipants() < 10"
+        [class.rouge]="conf.maxParticipants - conf.nbParticipants() === 0"
+        [disabled]="conf.maxParticipants - conf.nbParticipants() === 0"
+        (click)="conf.nbParticipants.set(conf.nbParticipants() + 1)">
         S'inscrire
       </button>
     </div>
@@ -21,3 +26,10 @@
 } @empty {
   <p>Aucune conférence enregistrée</p>
 }
+
+<h2>Détail de la conférence</h2>
+<app-conference-detail
+  [(titre)]="titreChoisi"
+  [description]="descriptionChoisie()"
+  [date]="dateChoisie()"
+  [lieu]="lieuChoisi()" />
