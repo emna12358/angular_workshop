@@ -1,0 +1,8 @@
+<h3>Gestion des utilisateurs</h3>
+<ul>
+  @for (user of users(); track user.id) {
+    <li>{{ user.nom }}</li>
+  } @empty {
+    <li>Aucun utilisateur</li>
+  }
+</ul>
